@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sakamotomiho/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true sakamotomiho/docker-react npm run test
+
